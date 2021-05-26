@@ -1,0 +1,14 @@
+.navbar{
+    background-color: #fff;
+    box-shadow: 0 15px 50px rgba(0,0,0,0.1);
+}
+.card{
+    margin: 5px;
+    box-shadow: 0 15px 50px rgba(0,0,0,0.1);
+}
+.card-title{
+   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.container .card i{
+    height: 100px;
+}

@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomeController!{% endblock %}
+
+{% block body %}
+<div class="container">
+<div class="row mt-5">
+<div class="card" style="width: 17rem;">
+  <img src=" {{ asset('images/shopping-en-ligne.png') }}" class="card-img-top" alt="..." style="height:150px; width:150px;">
+  <div class="card-body">
+  <h5 class="card-title">Achats</h5>
+    <p class="card-text">Veillez ajouter les achats</p>
+    <a href=" {{path('gestion')}} " class="btn btn-success">Ajout Achats</a>
+  </div>
+</div>
+<div class="card" style="width: 17rem;">
+<img src=" {{ asset('images/customer.png') }}" class="card-img-top" alt="..." style="height:150px; width:150px;">
+  <div class="card-body">
+    <h5 class="card-title">Clients</h5>
+    <p class="card-text">Cliquer pour voir les clients</p>
+    <a href="#" class="btn btn-success">Voir Client</a>
+  </div>
+</div>
+<div class="card" style="width: 17rem;">
+<img src=" {{ asset('images/inventory.png') }}" class="card-img-top" alt="..." style="height:150px; width:150px;">
+  <div class="card-body">
+    <h5 class="card-title ">Inventaires</h5>
+    <p class="card-text">Consulter les inventaires</p>
+    <a href="#" class="btn btn-success">Voir Inventaires</a>
+  </div>
+</div>
+<div class="card" style="width: 17rem;">
+<img src=" {{ asset('images/statistics.png') }}" class="card-img-top" alt="..." style="height:150px; width:150px;">
+  <div class="card-body">
+    <h5 class="card-title ">Factures</h5>
+    <p class="card-text">Consulter les factures</p>
+    <a href="#" class="btn btn-success">Facturation</a>
+  </div>
+</div>
+</div>
+</div>
+{% endblock %}

@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AffichageController!{% endblock %}
+
+{% block body %}
+<div class="containr-fluid">
+<h1 class="mt-4" style="font-family:bold;letter-spacing:2px;">Listes des achats</h1>
+<table class="table table-striped  mt-4" id="table">
+<thead>
+   <tr class="table-dark">
+     <th>ID</th>
+     <th>NOM PRODUIT</th>
+     <th>CATEGORIES</th>
+     <th>QUANTITE</th>
+     <th>PRIX</th>
+     <th>NOM CLIENT</th>
+     <th>TELEPHONE</th>
+     <th>EMAIL</th>
+      <th>ADRESSE</th>
+      <th>DATE </th>
+      <th>ACTIONS</th>
+
+   </tr>
+</thead>
+
+ <tbody>
+ {%  for achat in achats %}
+   <tr>
+       <td> {{ achat.id }} </td>
+       <td> {{ achat.nomProduit }} </td>
+       <td> {{ achat.categories }} </td>
+       <td> {{ achat.quantite }} </td>
+       <td> {{ achat.prixProduit }} </td>
+       <td> {{ achat.nomClient }} </td>
+       <td> {{ achat.telephone }} </td>
+       <td> {{ achat.email }} </td>
+       <td> {{ achat.adresse }} </td>
+       <td> {{ achat.createAt | date ('d/m/y') }} à {{ achat.createAt | date ('h:i') }}</td>
+      <td><a href="#" class="btn btn-danger delete-achat" data-id=" {{ achat.id}} " style="margin:5px;">Delete</a><a href="#" class="btn btn-secondary">Update</a></td>
+       
+    
+  
+   </tr>
+ {% endfor %}
+ <tbody>
+
+</table>
+</div>
+  {% block javascripts %}
+  <script src="/js/main.js"></script>
+  {% endblock %} 
+
+{% endblock %}

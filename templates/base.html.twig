@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {# Run `composer require symfony/webpack-encore-bundle`
+           and uncomment the following Encore helpers to start using Symfony UX #}
+        {% block stylesheets %}
+            {#{{ encore_entry_link_tags('app') }}#}
+         <link rel="stylesheet" href="css/bootstrap.min.css">
+         <link rel="stylesheet" href="css/style.css">
+         <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+        {% endblock %}
+
+        {% block javascripts %}
+            {#{{ encore_entry_script_tags('app') }}#}
+              <script src="js/main.js"></script>
+        {% endblock %}
+    </head>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light ">
+  <div class="container-fluid">
+    <a class="navbar-brand disabled" href="#"><i class="fas fa-store" style="margin:5px;"></i>Gestion Boutique</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse  collapse justify-content-between" id="navbarNavDropdown">
+      <ul class="navbar-nav mr-auto">
+      {% if app.user %}
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href=" {{path('home')}} "><i class="fas fa-home" style="margin:5px;"></i>Dashboard</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href=" {{path('affichage')}} "><i class="fas fa-shopping-bag"style="margin:5px;" ></i>Liste Achat</a>
+        </li>
+         {% endif %}
+      </ul>
+      <ul class="navbar-nav">
+      <li class="nav-item">
+          <a class="nav-link disabled" href="#"></a>
+        </li>
+
+        {%   if not app.user %}
+        <li class="nav-item">
+          <a class="nav-link" href="  {{ path('security_login')}} "><i class="fas fa-sign-in-alt" style="margin:5px;"></i>Connexion</a>
+        </li>
+        {%  else %}
+         <li class="nav-item">
+          <a class="nav-link" href=" {{ path('security_logout')}} "><i class="fas fa-power-off" style="margin:5px;"></i>Deconnexion</a>
+        </li>
+        {% endif %}
+      </ul>
+    </div>
+  </div>
+</nav>
+    <body>
+        {% block body %}{% endblock %}
+    </body>
+</html>
